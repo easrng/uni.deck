@@ -58,7 +58,7 @@ on percent_encode arr do
   local c: 0
   while i < arr.size
     c: arr[i]
-    out: (out, if (c>31) & (c<127) "%a" else "%%%02H" end format c)
+    out: (out, if (c>31) & (c<127) & (!(c=37)) "%a" else "%%%02H" end format c)
     i: i + 1
   end
   "" fuse out
